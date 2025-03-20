@@ -41,5 +41,8 @@ public class RandomData {
             new Libro("La casa nella prateria", 1935, autori.get(0), caseEditrici.get(0), 9.99, 200)
     ));
 
+    public static void main(String[] args) {
+        libriSet.forEach(l-> System.out.println(l.getTitolo()));
+    }
 
 }
