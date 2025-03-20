@@ -1,5 +1,7 @@
 package it.epicode.libri;
 
+import java.util.Objects;
+
 public class Libro {
     private String titolo;
     private int annoPubblicazione;
@@ -68,25 +70,19 @@ public class Libro {
         this.numeroPagine = numeroPagine;
     }
 
+
+
+    // per il confronto e inserimento in un hashmap bisogna definire sia equals che hashcode
     @Override
-    public boolean equals(Object obj) {
-        // controllare il titolo, il prezzo, il numero di pagine e l'anno di pubblicazione
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
-        Libro libro = (Libro) obj;
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Libro libro = (Libro) o;
+        return annoPubblicazione == libro.annoPubblicazione && Double.compare(prezzo, libro.prezzo) == 0 && numeroPagine == libro.numeroPagine && Objects.equals(titolo, libro.titolo) && Objects.equals(autore, libro.autore) && Objects.equals(casaEditrice, libro.casaEditrice);
+    }
 
-        if (Double.compare(libro.prezzo, prezzo) != 0) return false;
-
-        if (numeroPagine != libro.numeroPagine) return false;
-
-        if (annoPubblicazione != libro.annoPubblicazione) return false;
-
-        if (titolo != null ? !titolo.equals(libro.titolo) : libro.titolo != null) return false;
-
-
-
-        return true;
-
+    @Override
+    public int hashCode() {
+        return Objects.hash(titolo, annoPubblicazione, autore, casaEditrice, prezzo, numeroPagine);
     }
 
     @Override
