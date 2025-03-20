@@ -18,7 +18,6 @@ public class RandomData {
     );
 
     public static List<Libro> libri = List.of(
-            //new Libro("Il signore degli anelli", 1954, autori.get(0), caseEditrici.get(0), 19.99, 1000),
             new Libro("Il signore degli anelli", 1954, autori.get(0), caseEditrici.get(0), 20.0, 1000),
             new Libro("Il nome della rosa", 1980, autori.get(1), caseEditrici.get(1), 10.0, 500),
             new Libro("La coscienza di Zeno", 1923, autori.get(2), caseEditrici.get(2), 20.0, 300),
